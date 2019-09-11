@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/rl_not_vip"
+    android:background="@color/gray">
+
+    <TextView
+        android:id="@+id/tv_not_vip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="您还不是高级会员"
+        android:textColor="@color/tv_blue1"
+        android:textSize="@dimen/sp_20"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_open"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_not_vip"
+        android:layout_marginTop="@dimen/dp_60"
+        android:layout_marginRight="@dimen/dp_40"
+        android:layout_marginLeft="@dimen/dp_40"
+        android:background="@drawable/vip_kaitong_bg"
+        android:gravity="center"
+        android:padding="@dimen/dp_10"
+        android:text="立即开通"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_16" />
+
+</RelativeLayout>

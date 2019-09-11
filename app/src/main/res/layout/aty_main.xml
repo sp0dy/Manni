@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:id="@+id/rd_group"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:weightSum="4">
+
+        <RadioButton
+            android:id="@+id/rd_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/main_index"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:text="首页"
+            android:textColor="@color/tab_text_selecte"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rd_cp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/main_product"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:text="产品"
+            android:textColor="@color/tab_text_selecte"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rd_vip"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/main_vip"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:text="会员"
+            android:textColor="@color/tab_text_selecte"
+            android:textSize="14sp" />
+
+
+        <RadioButton
+            android:id="@+id/rd_mine"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/main_mine"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:text="我"
+            android:textColor="@color/tab_text_selecte"
+            android:textSize="14sp" />
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/main_frag"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rd_group" />
+
+</RelativeLayout>
