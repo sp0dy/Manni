@@ -29,5 +29,7 @@
         <activity android:name=".aty.IdCardAty" />
         <activity android:name=".aty.MyInfoAty" />
         <activity android:name=".aty.EditMyInfoAty" />
+        <activity android:name=".aty.RefundAty" />
+        <activity android:name=".aty.EditPhoneAty" />
     </application>
 </manifest>

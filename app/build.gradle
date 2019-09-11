@@ -23,12 +23,12 @@ android {
             storeFile file('F:/user/Manni/manni.jks')
             storePassword 'I0liTsCVXQWb'
         }
-        debug {
-            keyAlias 'manni'
-            keyPassword 'SJiSjXMdBkyh'
-            storeFile file('F:/user/Manni/manni.jks')
-            storePassword 'I0liTsCVXQWb'
-        }
+//        debug {
+//            keyAlias 'manni'
+//            keyPassword 'SJiSjXMdBkyh'
+//            storeFile file('F:/user/Manni/manni.jks')
+//            storePassword 'I0liTsCVXQWb'
+//        }
     }
     sourceSets {
         main {

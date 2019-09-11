@@ -15,6 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pro.haichuang.manni.R;
 import pro.haichuang.manni.base.BaseAty;
+import pro.haichuang.manni.data.Constant;
 import pro.haichuang.manni.event.EventCenter;
 import pro.haichuang.manni.fragment.HomeFgm;
 import pro.haichuang.manni.fragment.MineFgm;
@@ -65,7 +66,13 @@ public class MainActivity extends BaseAty {
 
     @Override
     protected void onEventData(EventCenter center) {
-
+        if (center.getEventCode()== Constant.MOVE_VIP){
+            changeUi(2);
+            rdVip.setChecked(true);
+        }else if (center.getEventCode()==Constant.MOVE_PRODUCT){
+            changeUi(1);
+            rdCp.setChecked(true);
+        }
     }
 
     private void changeUi(int i) {

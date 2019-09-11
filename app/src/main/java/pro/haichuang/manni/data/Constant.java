@@ -164,4 +164,8 @@ public class Constant {
     public static int CLOSE_VIP_ATY = 1;
     //关闭修改手机界面
     public static int CLOSE_PHONE = 2;
+    //移动到会员充值
+    public static int MOVE_VIP = 3;
+    //移动到产品界面
+    public static final int MOVE_PRODUCT = 4;
 }

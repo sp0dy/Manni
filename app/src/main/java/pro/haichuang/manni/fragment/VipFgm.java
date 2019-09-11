@@ -9,12 +9,15 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import java.sql.Ref;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import pro.haichuang.manni.R;
 import pro.haichuang.manni.aty.AgreementAty;
+import pro.haichuang.manni.aty.RefundAty;
 import pro.haichuang.manni.base.BaseFgm;
 import pro.haichuang.manni.data.Constant;
 import pro.haichuang.manni.event.EventCenter;
@@ -88,6 +91,7 @@ public class VipFgm extends BaseFgm {
                 intent = new Intent(getContext(), AgreementAty.class);
                 break;
             case R.id.tv_refund:
+                intent = new Intent(getContext(), RefundAty.class);
                 break;
             case R.id.tv_go_pay:
                 intent = new Intent();

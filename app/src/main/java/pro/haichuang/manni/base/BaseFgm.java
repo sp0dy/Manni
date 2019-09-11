@@ -14,7 +14,7 @@ import butterknife.ButterKnife;
 import pro.haichuang.manni.event.EventCenter;
 
 public abstract class BaseFgm extends Fragment {
-    private View view;
+    public View view;
 
     @Nullable
     @Override

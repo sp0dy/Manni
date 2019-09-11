@@ -5,49 +5,63 @@
     android:background="@color/gray"
     android:orientation="vertical">
 
-    <include layout="@layout/titlebar"/>
+    <include layout="@layout/titlebar" />
 
-    <com.youth.banner.Banner
-        android:id="@+id/home_banner"
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scroll"
         android:layout_width="match_parent"
-        android:layout_height="200dp"/>
+        android:layout_height="match_parent">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_30"
-        android:background="@color/white">
-
-        <View
-            android:layout_width="@dimen/dp_6"
-            android:layout_height="match_parent"
-            android:background="@color/tv_blue2"/>
-
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="贷款产品"
-            android:textSize="@dimen/sp_14"
-            android:textColor="@color/tv_black"
-            android:gravity="center"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/dp_20"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tv_more"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="更多"
-            android:textColor="@color/tv_black"
-            android:textSize="@dimen/sp_14"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/dp_20"/>
-    </RelativeLayout>
+            <com.youth.banner.Banner
+                android:focusableInTouchMode="true"
+                android:id="@+id/home_banner"
+                android:layout_width="match_parent"
+                android:layout_height="200dp" />
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/home_recy"
-        android:background="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_30"
+                android:background="@color/white">
 
+                <View
+                    android:layout_width="@dimen/dp_6"
+                    android:layout_height="match_parent"
+                    android:background="@color/tv_blue2" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/dp_20"
+                    android:gravity="center"
+                    android:text="贷款产品"
+                    android:textColor="@color/tv_black"
+                    android:textSize="@dimen/sp_14" />
+
+                <TextView
+                    android:id="@+id/tv_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/dp_20"
+                    android:text="更多"
+                    android:textColor="@color/tv_black"
+                    android:textSize="@dimen/sp_14" />
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/home_recy"
+                android:nestedScrollingEnabled="false"
+                android:overScrollMode="never"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/white" />
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
 </LinearLayout>

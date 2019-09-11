@@ -10,10 +10,14 @@
     <color name="tv_gray">#CAD2DD</color>
     <color name="tv_blue1">#36A5F8</color>
     <color name="gray">#F0F2F8</color>
-    <color name="red">#ff0000</color>
+    <color name="red">#E64340</color>
     <color name="tv_black1">#6D7278</color>
     <color name="tv_black2">#203152</color>
     <color name="gray1">#E0E5EB</color>
     <color name="logo">#283277</color>
     <color name="tv_blue2">#1989FA</color>
+    <color name="gray_text_color">#848484</color>
+    <color name="login_lie">#dbdbdb</color>
+    <color name="btn_blue_normal">#1e90ff</color>
+    <color name="Orange">#FFA500</color>
 </resources>

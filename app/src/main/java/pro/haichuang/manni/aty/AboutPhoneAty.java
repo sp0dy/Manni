@@ -74,8 +74,8 @@ public class AboutPhoneAty extends BaseAty {
             case R.id.tv_next:
                 if (type.equals("verify")){
                     startActivity(new Intent(AboutPhoneAty.this,IdCardAty.class));
-                }else {
-                    startActivity(new Intent(AboutPhoneAty.this,IdCardAty.class));
+                }else if (type.equals("edit")){
+                    startActivity(new Intent(AboutPhoneAty.this,EditPhoneAty.class));
                 }
                 break;
         }
