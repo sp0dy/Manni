@@ -5,11 +5,14 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.greenrobot.eventbus.EventBus;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pro.haichuang.manni.R;
 import pro.haichuang.manni.base.BaseAty;
+import pro.haichuang.manni.data.Constant;
 import pro.haichuang.manni.event.EventCenter;
 
 public class EditMyInfoAty extends BaseAty {
@@ -58,6 +61,9 @@ public class EditMyInfoAty extends BaseAty {
                 finish();
                 break;
             case R.id.tv_ok:
+                //TODO 网络请求上传名字成功返回结果
+                EventBus.getDefault().post(new EventCenter(Constant.UPDATA_NAME,etName.getText().toString()));
+                finish();
                 break;
         }
     }

@@ -9,15 +9,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.luck.picture.lib.PictureSelector;
+import com.luck.picture.lib.config.PictureConfig;
+import com.luck.picture.lib.config.PictureMimeType;
+
 import java.util.List;
 import pro.haichuang.manni.R;
-import pro.haichuang.manni.dialog.AbulmCameraDialog;
+import pro.haichuang.manni.aty.RefundAty;
+import pro.haichuang.manni.util.CommonDialog;
 
 public class ImgsAdp extends RecyclerView.Adapter<ImgsAdp.ViewHodler> {
 
     private Context context;
     private List<String> strings;
-    private AbulmCameraDialog abulmCameraDialog;
 
     public ImgsAdp(Context context, List<String> strings) {
         this.context = context;
@@ -34,7 +38,9 @@ public class ImgsAdp extends RecyclerView.Adapter<ImgsAdp.ViewHodler> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHodler holder, final int position) {
-        abulmCameraDialog = new AbulmCameraDialog(context);
+        final CommonDialog.Builder builder = new CommonDialog.Builder(context).fullWidth().fromBottom()
+                .setView(R.layout.dialog_mode_mine_abulm);
+
         if (strings != null && position< strings.size()){
             Glide.with(context).load(strings.get(position)).into(holder.img_circle);
             holder.img_circle.setVisibility(View.VISIBLE);
@@ -48,7 +54,7 @@ public class ImgsAdp extends RecyclerView.Adapter<ImgsAdp.ViewHodler> {
         holder.img_add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                abulmCameraDialog.showDialog();
+                builder.create().show();
             }
         });
         holder.tv_del.setOnClickListener(new View.OnClickListener() {
@@ -59,90 +65,44 @@ public class ImgsAdp extends RecyclerView.Adapter<ImgsAdp.ViewHodler> {
             }
         });
 
-//        abulmCameraDialog.setOnItemClickListener(new AbulmCameraDialog.OnItemClickListener() {
-//            @Override
-//            public void onItemListener(int choose) {
-//                if (choose == abulmCameraDialog.TAKEPHOTO) {
-//                    RxPermissions permissions = new RxPermissions((RefundAty) context);
-//                    if (!permissions.isGranted(Manifest.permission.CAMERA)) {
-//                        permissions.request(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
-//                                .subscribe(new Observer<Boolean>() {
-//                                    @Override
-//                                    public void onSubscribe(Disposable d) {
-//
-//                                    }
-//
-//                                    @Override
-//                                    public void onNext(Boolean aBoolean) {
-//                                        Intent intent = new Intent(context, CameraActivity.class);
-//                                        intent.putExtra("types","push");
-//                                        context.startActivity(intent);
-//                                        abulmCameraDialog.dismiss();
-//                                    }
-//
-//                                    @Override
-//                                    public void onError(Throwable e) {
-//
-//                                    }
-//
-//                                    @Override
-//                                    public void onComplete() {
-//
-//                                    }
-//                                });
-//                    } else {
-//                        Intent intent = new Intent(context, CameraActivity.class);
-//                        intent.putExtra("types","push");
-//                        context.startActivity(intent);
-//                        abulmCameraDialog.dismiss();
-//                    }
-//                } else if (choose == abulmCameraDialog.AUBLUM) {
-//                    RxPermissions permissions = new RxPermissions((AddPinGoodsAty) context);
-//                    if (!permissions.isGranted(Manifest.permission.CAMERA)) {
-//                        permissions.request(Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO)
-//                                .subscribe(new Observer<Boolean>() {
-//                                    @Override
-//                                    public void onSubscribe(Disposable d) {
-//
-//                                    }
-//
-//                                    @Override
-//                                    public void onNext(Boolean aBoolean) {
-//                                        if (aBoolean) {
-//                                            EasyPhotos.createAlbum((AddPinGoodsAty) context, true, new MyGlideEngin())
-//                                                    .setCount(1)
-//                                                    .setFileProviderAuthority("com.xhc.merlot.cameraProvider")
-//                                                    .start(AddPinGoodsAty.getPhoto());
-//                                        }
-//                                    }
-//
-//                                    @Override
-//                                    public void onError(Throwable e) {
-//
-//                                    }
-//
-//                                    @Override
-//                                    public void onComplete() {
-//
-//                                    }
-//                                });
-//                    } else {
-//                        EasyPhotos.createAlbum((AddPinGoodsAty) context, true, new MyGlideEngin())
-//                                .setCount(1)
-//                                .setFileProviderAuthority("com.xhc.merlot.cameraProvider")
-//                                .start(AddPinGoodsAty.getPhoto());
-//                    }
-//                    abulmCameraDialog.dismiss();
-//                } else if (choose == abulmCameraDialog.CANCLE) {
-//                    abulmCameraDialog.dismiss();
-//                }
-//            }
-//        });
+        builder.setOnClickListener(R.id.tv_xiangji, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                builder.dismiss();
+                PictureSelector.create((RefundAty)context)
+                        .openCamera(PictureMimeType.ofImage())
+                        .selectionMode(PictureConfig.SINGLE)
+                        .withAspectRatio(1, 1)
+                        .enableCrop(true)
+                        .showCropFrame(false)
+                        .showCropGrid(false)
+                        .freeStyleCropEnabled(true)
+                        .circleDimmedLayer(true)
+                        .forResult(PictureConfig.CHOOSE_REQUEST);
+            }
+        });
+        builder.setOnClickListener(R.id.tv_xiangce, new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                builder.dismiss();
+                PictureSelector.create((RefundAty)context)
+                        .openGallery(PictureMimeType.ofImage())
+                        .selectionMode(PictureConfig.SINGLE)
+                        .withAspectRatio(1, 1)
+                        .enableCrop(true)
+                        .showCropFrame(false)
+                        .showCropGrid(false)
+                        .freeStyleCropEnabled(true)
+                        .circleDimmedLayer(true)
+                        .forResult(PictureConfig.CHOOSE_REQUEST);
+
+            }
+        });
     }
 
     @Override
     public int getItemCount() {
-        if (strings.size() < 6) {
+        if (strings.size() < 10) {
             return strings.size() + 1;
         }
         return strings.size();

@@ -14,9 +14,12 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
 import pro.haichuang.manni.R;
+import pro.haichuang.manni.aty.LoginActivity;
 import pro.haichuang.manni.aty.MyInfoAty;
 import pro.haichuang.manni.base.BaseFgm;
 import pro.haichuang.manni.event.EventCenter;
+import pro.haichuang.manni.util.ToastUtil;
+import pro.haichuang.manni.util.Utils;
 
 public class MineFgm extends BaseFgm {
     @BindView(R.id.img_icon)
@@ -78,8 +81,13 @@ public class MineFgm extends BaseFgm {
             case R.id.rl_account_safety:
                 break;
             case R.id.rl_release:
+                Utils.clearAllCache(getContext());
+                ToastUtil.toast("清理完成");
+                tvSize.setText("");
                 break;
             case R.id.tv_login_out:
+                startActivity(new Intent(getContext(),LoginActivity.class));
+                getActivity().finish();
                 break;
             case R.id.rl_info:
                 intent = new Intent(getContext(), MyInfoAty.class);

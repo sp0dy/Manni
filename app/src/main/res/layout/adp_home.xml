@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="15dp"
+    android:padding="10dp"
     android:id="@+id/rl_item"
     android:orientation="vertical">
 
@@ -11,7 +11,7 @@
         android:layout_width="@dimen/dp_60"
         android:layout_height="@dimen/dp_60"
         android:layout_margin="@dimen/dp_10"
-        android:src="@mipmap/logo"/>
+        android:src="@drawable/icon_1"/>
 
     <RelativeLayout
         android:layout_toRightOf="@id/img_icon"
@@ -29,12 +29,6 @@
             android:layout_centerVertical="true"
             android:text="XXX公积金极速贷款"/>
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/more"
-            android:layout_centerVertical="true"
-            android:layout_alignParentRight="true"/>
     </RelativeLayout>
 
     <TextView
@@ -57,4 +51,12 @@
         android:layout_height="@dimen/dp_0_5"
         android:layout_marginLeft="@dimen/dp_80"
         android:background="@color/gray"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/more"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/dp_10"/>
 </RelativeLayout>

@@ -6,69 +6,86 @@
     android:orientation="vertical">
 
     <RelativeLayout
-        android:id="@+id/rl_info"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp_175"
-        android:layout_marginLeft="@dimen/dp_20"
-        android:layout_marginTop="@dimen/dp_60"
-        android:layout_marginRight="@dimen/dp_20"
-        android:background="@drawable/login_bg_white">
+        android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/img_icon"
-            android:layout_width="@dimen/dp_60"
-            android:layout_height="@dimen/dp_60"
-            android:layout_centerVertical="true"
-            android:layout_margin="@dimen/dp_20"
-            android:src="@drawable/ic_launcher" />
-
-
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_200"
+            android:background="@drawable/myinfo_bg"/>
         <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/img_icon">
-
-            <TextView
-                android:id="@+id/tv_name"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="王二麻子"
-                android:textColor="@color/tv_black"
-                android:textSize="@dimen/sp_16"
-                android:textStyle="bold" />
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_name"
-                android:layout_marginTop="@dimen/dp_8">
-
-                <TextView
-                    android:id="@+id/tv_dianhua"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="电话："
-                    android:textSize="@dimen/sp_14"
-                    android:textColor="@color/tv_black1" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@+id/tv_dianhua"
-                    android:text="12345678900"
-                    android:textSize="@dimen/sp_14"
-                    android:textColor="@color/tv_black1" />
-
-            </RelativeLayout>
+            android:id="@+id/rl_info"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_175"
+            android:layout_marginLeft="@dimen/dp_20"
+            android:layout_marginTop="@dimen/dp_60"
+            android:layout_marginRight="@dimen/dp_20"
+            android:background="@drawable/login_bg_white">
 
             <ImageView
+                android:id="@+id/img_icon"
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="@dimen/dp_60"
+                android:layout_centerVertical="true"
+                android:layout_margin="@dimen/dp_20"
+                android:src="@drawable/ic_launcher" />
+
+
+            <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@mipmap/more"
                 android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="@dimen/dp_20"/>
+                android:layout_toRightOf="@+id/img_icon">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="王二麻子"
+                    android:textColor="@color/tv_black"
+                    android:textSize="@dimen/sp_16"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:id="@+id/img_vip_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_2"
+                   android:layout_alignBottom="@+id/tv_name"
+                    android:layout_toRightOf="@+id/tv_name"
+                    android:src="@drawable/vip_icon"/>
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tv_name"
+                    android:layout_marginTop="@dimen/dp_8">
+
+                    <TextView
+                        android:id="@+id/tv_dianhua"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="电话："
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/tv_black1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toRightOf="@+id/tv_dianhua"
+                        android:text="12345678900"
+                        android:textSize="@dimen/sp_14"
+                        android:textColor="@color/tv_black1" />
+
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@mipmap/more"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/dp_20"/>
+            </RelativeLayout>
         </RelativeLayout>
     </RelativeLayout>
 

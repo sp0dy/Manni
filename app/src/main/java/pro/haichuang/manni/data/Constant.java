@@ -168,4 +168,7 @@ public class Constant {
     public static int MOVE_VIP = 3;
     //移动到产品界面
     public static final int MOVE_PRODUCT = 4;
+    //更新昵称
+    public static final int UPDATA_NAME = 5;
+
 }

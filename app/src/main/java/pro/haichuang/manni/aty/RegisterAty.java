@@ -15,12 +15,8 @@ import pro.haichuang.manni.base.BaseAty;
 import pro.haichuang.manni.event.EventCenter;
 
 public class RegisterAty extends BaseAty {
-    @BindView(R.id.tv_title)
-    TextView tvTitle;
     @BindView(R.id.et_phone)
     EditText etPhone;
-    @BindView(R.id.tv_code)
-    EditText tvCode;
     @BindView(R.id.tv_send_code)
     TextView tvSendCode;
     @BindView(R.id.et_pwd)
@@ -35,6 +31,10 @@ public class RegisterAty extends BaseAty {
     TextView tvOk;
     @BindView(R.id.ll_agreement)
     LinearLayout llAgreement;
+    @BindView(R.id.et_code)
+    EditText etCode;
+    @BindView(R.id.tv_title)
+    TextView tvTitle;
 
     private String type;
 
@@ -70,6 +70,11 @@ public class RegisterAty extends BaseAty {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 
     @OnClick({R.id.tv_send_code, R.id.tv_agreement, R.id.tv_ok})

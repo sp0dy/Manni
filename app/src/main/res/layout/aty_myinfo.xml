@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/gray"
     android:orientation="vertical">
 
@@ -33,6 +34,7 @@
             android:src="@drawable/vip_normal"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/dp_20"
+            app:riv_oval="true"
             android:layout_toLeftOf="@+id/img_icon_more"/>
 
         <ImageView

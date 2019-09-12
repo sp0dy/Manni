@@ -15,12 +15,14 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
             android:orientation="vertical">
 
-            <com.youth.banner.Banner
-                android:focusableInTouchMode="true"
+            <pro.haichuang.manni.custview.BannerViewPager
                 android:id="@+id/home_banner"
                 android:layout_width="match_parent"
+                android:background="#ECEDFF"
+                android:padding="@dimen/dp_10"
                 android:layout_height="200dp" />
 
             <RelativeLayout

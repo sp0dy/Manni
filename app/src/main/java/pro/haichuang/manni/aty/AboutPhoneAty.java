@@ -49,7 +49,9 @@ public class AboutPhoneAty extends BaseAty {
 
     @Override
     protected void initData() {
-
+        if (type.equals("edit")){
+            tvPhone.setText("旧手机号");
+        }
     }
 
     @Override

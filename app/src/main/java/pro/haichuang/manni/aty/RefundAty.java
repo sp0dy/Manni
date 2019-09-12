@@ -1,14 +1,25 @@
 package pro.haichuang.manni.aty;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.luck.picture.lib.PictureSelector;
+import com.luck.picture.lib.config.PictureConfig;
+import com.luck.picture.lib.entity.LocalMedia;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import pro.haichuang.manni.R;
+import pro.haichuang.manni.aty.adapter.ImgsAdp;
 import pro.haichuang.manni.base.BaseAty;
 import pro.haichuang.manni.event.EventCenter;
 
@@ -46,6 +57,10 @@ public class RefundAty extends BaseAty {
     @BindView(R.id.tv_commit)
     TextView tvCommit;
 
+    private String img_path;
+    private ImgsAdp imgsAdp;
+    private List<String> imglist;
+
     @Override
     public int getLayout() {
         return R.layout.aty_refund;
@@ -53,12 +68,17 @@ public class RefundAty extends BaseAty {
 
     @Override
     protected void initView() {
-
+        tvTitle.setText("退款");
     }
 
     @Override
     protected void initData() {
-
+        imglist = new ArrayList<>();
+        GridLayoutManager manager = new GridLayoutManager(this,3);
+        manager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyPhoto.setLayoutManager(manager);
+        imgsAdp = new ImgsAdp(this,imglist);
+        recyPhoto.setAdapter(imgsAdp);
     }
 
     @Override
@@ -75,5 +95,23 @@ public class RefundAty extends BaseAty {
 
     @OnClick(R.id.tv_commit)
     public void onViewClicked() {
+        finish();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PictureConfig.CHOOSE_REQUEST) {
+            List<LocalMedia> selectList = PictureSelector.obtainMultipleResult(data);
+            if (selectList.size() > 0) {
+                if (selectList.get(0).isCut()) {
+                    img_path = selectList.get(0).getCutPath();
+                } else {
+                    img_path = selectList.get(0).getPath();
+                }
+                imglist.add(img_path);
+                imgsAdp.notifyDataSetChanged();
+            }
+        }
     }
 }

@@ -66,7 +66,9 @@ public class LoginActivity extends BaseAty {
                 intent.putExtra("type", "forgetpwd");
                 break;
             case R.id.tv_login:
-                intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent1 = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent1);
+                finish();
                 break;
         }
         if (intent != null) {
